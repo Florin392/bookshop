@@ -1,8 +1,11 @@
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/env");
+const User = require("../models/Users");
 
-const authMiddleware = (req, res, next) => {
+// Authentication middleware to check JWT token
+const authMiddleware = async (req, res, next) => {
   try {
+    // check authorization header
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -12,12 +15,19 @@ const authMiddleware = (req, res, next) => {
       });
     }
 
-    const token = authHeader.split(" ")[1];
+    const token = authHeader.split(" ")[1]; // extract token
 
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET); // check token
 
-    req.user = decoded;
+    const user = await User.findOne({ username: decoded.username }); // check if user exists
 
+    if (!user) {
+      return res.status(401).json({
+        message: "The user associated with this token is no longer exists",
+      });
+    }
+
+    req.user = decoded; // add user info to request object
     next();
   } catch (error) {
     if (error.name === "TokenExpiredError") {

@@ -1,7 +1,6 @@
 const asyncHandler = require("../utils/asyncHandler");
 const authService = require("../services/authService");
 
-// Register a new user
 const register = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
 
@@ -42,7 +41,6 @@ const register = asyncHandler(async (req, res) => {
   });
 });
 
-// Login a user
 const login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
 
