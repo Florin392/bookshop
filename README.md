@@ -42,47 +42,42 @@ This project is a learning exercise focused on implementing Node.js backend deve
 ### Authentication
 
 - **Register a new user**
-- `POST /api/register`
-- Request body: `{ "username": "user1", "password": "password123" }`
+
+  - `POST /api/register`
+  - Request body: `{ "username": "user1", "password": "password123" }`
 
 - **Login**
-- `POST /api/login`
-- Request body: `{ "username": "user1", "password": "password123" }`
-- Returns a JWT token to use for authenticated requests
+  - `POST /api/login`
+  - Request body: `{ "username": "user1", "password": "password123" }`
+  - Returns a JWT token to use for authenticated requests
 
 ### Books
 
-- **Get all books**
-- `GET /api/books`
-- No authentication required
+- **Get all books** `GET /api/books`, No authentication required
 
-- **Get a single book by ISBN**
-- `GET /api/books/isbn/:isbn`
-- No authentication required
+- **Get a single book by ISBN** `GET /api/books/isbn/:isbn`,
+  No authentication required
 
-- **Get books by author**
-- `GET /api/books/author/:author`
-- No authentication required
+- **Get books by author** `GET /api/books/author/:author`, No authentication required
 
-- **Get books by title**
-- `GET /api/books/title/:title`
-- No authentication required
+- **Get books by title** `GET /api/books/title/:title`, No authentication required
 
 ### Reviews
 
 - **Get reviews for a book**
-- `GET /api/books/:isbn/reviews`
-- No authentication required
+  `GET /api/books/:isbn/reviews`
+  No authentication required
 
 - **Add or update a review**
-- `PUT /api/books/:isbn/reviews`
-- Requires authentication (JWT token)
-- Query parameter: `review=Your review content goes here`
+  `PUT /api/books/:isbn/reviews`
+
+  - Requires authentication (JWT token)
+  - Query parameter: `review=Your review content goes here`
 
 - **Delete a review**
-- `DELETE /api/books/:isbn/reviews`
-- Requires authentication (JWT token)
-- Deletes the review made by the authenticated user
+  `DELETE /api/books/:isbn/reviews`
+  - Requires authentication (JWT token)
+  - Deletes the review made by the authenticated user
 
 ## Testing with Postman
 
@@ -113,7 +108,7 @@ This project is a learning exercise focused on implementing Node.js backend deve
 
    - Get all books: `GET {{base_url}}/api/books`
    - Get book by ISBN: `GET {{base_url}}/api/books/isbn/1`
-   - Search by author: `GET {{base_url}}/api/books/author/Author%201`
+   - Search by author: `GET {{base_url}}/api/books/author/Author%1`
    - Search by title: `GET {{base_url}}/api/books/title/Book%20Title`
 
 4. **Review Operations**
