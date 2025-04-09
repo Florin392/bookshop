@@ -17,7 +17,10 @@ This project is a learning exercise focused on implementing Node.js backend deve
 - Node.js
 - Express.js
 - Express-session for session management
+- MongoDB for data persistence
+- Mongoose ODM for MongoDB object modeling
 - JSON Web Tokens (JWT) for authentication
+- bcrypt for password hashing
 
 
 ## Installation
@@ -28,6 +31,7 @@ This project is a learning exercise focused on implementing Node.js backend deve
 3. Create a `.env` file in the root directory based on `.env.example`:
    - JWT_SECRET=your_secret_key_here
    - PORT=5000
+   - MONGODB_URI=mongodb://localhost:27017/bookshop
 4. Start the development server: 
    - npm run dev
 
@@ -151,7 +155,6 @@ This project is a learning exercise focused on implementing Node.js backend deve
 ## Future Enhancements
 
 - Input validation
-- MongoDB integration
 - Logging system
 - User roles and permissions
 - Refresh tokens

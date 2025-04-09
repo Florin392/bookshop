@@ -1,6 +1,5 @@
 const asyncHandler = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch((error) => {
-    // console.log("Error caught in asyncHandler:", error.message);
     let statusCode = 500;
 
     if (
