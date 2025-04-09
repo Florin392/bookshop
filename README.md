@@ -152,10 +152,5 @@ This project is a learning exercise focused on implementing Node.js backend deve
 - URL: `{{base_url}}/api/books/1`
 - Headers: `Authorization: Bearer {{token}}`
 
-## Future Enhancements
 
-- Input validation
-- Logging system
-- User roles and permissions
-- Refresh tokens
 
